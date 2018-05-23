@@ -1,32 +1,34 @@
-#include <stdio.h>
-#include <string.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strstr.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rdu-toi <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/05/22 00:14:09 by rdu-toi           #+#    #+#             */
+/*   Updated: 2018/05/22 00:20:00 by rdu-toi          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "libft.h"
 
 char	*ft_strstr(const char *haystack, const char *needle)
 {
 	int		i;
 	int		j;
-	//int		k;
 
 	i = 0;
 	j = 0;
-	while (haystack[i] != '\0' && i++)
-	{
-		if (haystack[i] == needle[j])
-			break;
-	}
-	j++;
+	if (needle[j] == '\0')
+		return ((char *)&haystack[i]);
 	while (haystack[i] != '\0')
 	{
-		if (haystack[i] != needle[j] && needle[j] != '\0')
-			break;
+		while (haystack[i + j] == needle[j] && needle[j] != '\0')
+			j++;
 		if (needle[j] == '\0')
-			return (haystack);
+			return ((char *)&haystack[i]);
+		j = 0;
+		i++;
 	}
 	return (NULL);
-}
-
-int		main(void)
-{
-	printf("%s\n", ft_strstr("hello", "el"));
-	printf("%s\n", strstr("hello", "el"));
 }

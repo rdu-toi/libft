@@ -1,16 +1,16 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strcat.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rdu-toi <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/05/22 00:11:17 by rdu-toi           #+#    #+#             */
+/*   Updated: 2018/05/22 00:11:20 by rdu-toi          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
-#include <stdio.h>
-#include <string.h>
-
-size_t	ft_strlen(const char *str)
-{
-	size_t	i;
-
-	i = 0;
-	while (str[i] != '\0')
-		i++;
-	return (i);
-}
 
 char	*ft_strcat(char *dest, const char *src)
 {
@@ -19,16 +19,11 @@ char	*ft_strcat(char *dest, const char *src)
 
 	i = 0;
 	len = ft_strlen(dest);
-	while (src[i] != '\0' && i++)
+	while (src[i])
+	{
 		dest[len + i] = src[i];
+		i++;
+	}
 	dest[len + i] = '\0';
 	return (dest);
-}
-
-int		main(void)
-{
-	char	dest[] = "hello";
-	char	src[] = "world";
-	printf("%s\n", ft_strcat(dest, src));
-	printf("%s\n", strcat(dest, src));
 }

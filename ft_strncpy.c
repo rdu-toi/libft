@@ -1,23 +1,31 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strncpy.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rdu-toi <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/05/22 00:13:59 by rdu-toi           #+#    #+#             */
+/*   Updated: 2018/05/22 00:14:00 by rdu-toi          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
-#include <stdio.h>
 
 char	*ft_strncpy(char *dest, const char *src, size_t n)
 {
-	int		i;
+	size_t	i;
 
 	i = 0;
-	if (n == 0)
-		return (0);
-	while (src[i] != '\0' && --n)
+	while (src[i] != '\0' && i <= n)
 	{
 		dest[i] = src[i];
 		i++;
 	}
-	dest[i] = '\0';
+	while (i < n)
+	{
+		dest[i] = '\0';
+		i++;
+	}
 	return (dest);
-}
-
-int		main(void)
-{
-	printf("%s\n", ft_strncpy("world", "hello", 1));
 }
