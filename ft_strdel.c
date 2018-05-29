@@ -1,28 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_strdel.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rdu-toi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/05/23 12:10:41 by rdu-toi           #+#    #+#             */
-/*   Updated: 2018/05/23 12:10:42 by rdu-toi          ###   ########.fr       */
+/*   Created: 2018/05/27 05:09:57 by rdu-toi           #+#    #+#             */
+/*   Updated: 2018/05/27 05:09:58 by rdu-toi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memmove(void *dst, const void *src, size_t len)
+void	ft_strdel(char **as)
 {
-	int		i;
-
-	i = 0;
-	while (len--)
+	if (as)
 	{
-		((unsigned char *)dst)[i] = ((unsigned char *)src)[i];
-		i++;
+		free(*as);
+		*as = NULL;
 	}
-	while (len--)
-		((unsigned char *)dst)[i++] = '\0';
-	return (dst);
 }

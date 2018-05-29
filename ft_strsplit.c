@@ -1,28 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_strsplit.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rdu-toi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/05/23 12:10:41 by rdu-toi           #+#    #+#             */
-/*   Updated: 2018/05/23 12:10:42 by rdu-toi          ###   ########.fr       */
+/*   Created: 2018/05/24 12:29:56 by rdu-toi           #+#    #+#             */
+/*   Updated: 2018/05/24 12:29:57 by rdu-toi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
+#include <stdlib.h>
 
-void	*ft_memmove(void *dst, const void *src, size_t len)
+char	**ft_strsplit(char const *str, char c)
 {
+	unsigned char **dst;
 	int		i;
+	int		j;
+	int		k;
 
 	i = 0;
-	while (len--)
+	j = 0;
+	k = 0;
+	while (str[i])
 	{
-		((unsigned char *)dst)[i] = ((unsigned char *)src)[i];
+		if (str[i] != c)
+			j++;
 		i++;
 	}
-	while (len--)
-		((unsigned char *)dst)[i++] = '\0';
-	return (dst);
+	i = 0;
+	*dst = ((unsigned char **)malloc(sizeof) * j);
+	j = 0;
+	while (str[i])
+	{
+		while (*dst[j] != '\0')
+		{
+			while ()
+		}
+	}
 }

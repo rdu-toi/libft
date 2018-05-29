@@ -1,28 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_strequ.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rdu-toi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/05/23 12:10:41 by rdu-toi           #+#    #+#             */
-/*   Updated: 2018/05/23 12:10:42 by rdu-toi          ###   ########.fr       */
+/*   Created: 2018/05/26 09:03:15 by rdu-toi           #+#    #+#             */
+/*   Updated: 2018/05/26 09:03:16 by rdu-toi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memmove(void *dst, const void *src, size_t len)
+int		ft_strequ(char const *s1, char const *s2)
 {
-	int		i;
-
-	i = 0;
-	while (len--)
+	if (s1 && s2)
 	{
-		((unsigned char *)dst)[i] = ((unsigned char *)src)[i];
-		i++;
+		if (!ft_strcmp(s1, s2))
+				return (1);
 	}
-	while (len--)
-		((unsigned char *)dst)[i++] = '\0';
-	return (dst);
+	return (0);
 }
