@@ -1,36 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strtrim.c                                       :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rdu-toi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/05/25 11:19:20 by rdu-toi           #+#    #+#             */
-/*   Updated: 2018/05/25 11:19:22 by rdu-toi          ###   ########.fr       */
+/*   Created: 2018/05/29 13:44:44 by rdu-toi           #+#    #+#             */
+/*   Updated: 2018/05/29 13:44:45 by rdu-toi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strtrim(char const *s)
+int		ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	int		i;
-	int		j;
-	char	*str;
+	unsigned int	i;
 
 	i = 0;
-	j = 0;
-	if (!s)
-		return (NULL);
-	while (s[i] && ft_iswspace(s[i]))
+	while (((unsigned char *)s1)[i] == ((unsigned char *)s2)[i] && (i < n))
 		i++;
-	if(s[i] == '\0')
-		return(ft_strdup(""));
-	j = ft_strlen(s) - 1;
-	while (ft_iswspace(s[j]) && j >= 1)
-		j--;
-	if (!(str = ft_strnew(j - i + 1)))
-		return (NULL);
-	ft_strncpy(str, &s[i], (j - i + 1));
-	return (str);
+	if (i == n)
+		return (0);
+	else
+		return (((unsigned char *)s1)[i] - ((unsigned char *)s2)[i]);
 }

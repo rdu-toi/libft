@@ -1,36 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strtrim.c                                       :+:      :+:    :+:   */
+/*   ft_strndup.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rdu-toi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/05/25 11:19:20 by rdu-toi           #+#    #+#             */
-/*   Updated: 2018/05/25 11:19:22 by rdu-toi          ###   ########.fr       */
+/*   Created: 2018/05/30 09:33:05 by rdu-toi           #+#    #+#             */
+/*   Updated: 2018/05/30 09:33:06 by rdu-toi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strtrim(char const *s)
+char	*ft_strndup(const char *s, size_t n)
 {
-	int		i;
-	int		j;
-	char	*str;
+	size_t	i;
+	char	*d;
 
 	i = 0;
-	j = 0;
-	if (!s)
-		return (NULL);
-	while (s[i] && ft_iswspace(s[i]))
+	while (s[i] != '\0')
 		i++;
-	if(s[i] == '\0')
-		return(ft_strdup(""));
-	j = ft_strlen(s) - 1;
-	while (ft_iswspace(s[j]) && j >= 1)
-		j--;
-	if (!(str = ft_strnew(j - i + 1)))
-		return (NULL);
-	ft_strncpy(str, &s[i], (j - i + 1));
-	return (str);
+	if (i < n)
+	{
+		if (!(d = (char*)malloc(sizeof(*s) * i + 1)))
+			return (NULL);
+	}
+	else
+	{
+		if (!(d = (char*)malloc(sizeof(*s) * n + 1)))
+			return (NULL);
+	}
+	i = 0;
+	while (s[i] != '\0' && n--)
+	{
+		d[i] = s[i];
+		i++;
+	}
+	d[i] = '\0';
+	return (d);
 }

@@ -14,5 +14,35 @@
 
 void	ft_putnbr(int n)
 {
-	ft_putchar(n);
+	long	nbr;
+	char	num;
+	int		flag;
+	int		len;
+
+	nbr = n;
+	flag = 0;
+	len = ft_nbrlen((int)nbr);
+	len--;
+	if (nbr < 0)
+	{
+		nbr = -nbr;
+		ft_putchar('-');
+		flag = 1;
+	}
+	if (nbr < 10)
+	{
+		num = nbr + '0';
+		ft_putchar(num);
+	}
+	if (nbr == 0)
+		ft_putchar(nbr);
+	if (nbr >= 10)
+	{
+		while (len-- > flag)
+		{
+			num = (nbr % 10) + '0';
+			ft_putchar(num);
+			nbr /= 10;
+		}
+	}
 }
