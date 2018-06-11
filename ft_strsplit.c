@@ -11,33 +11,51 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
-#include <stdlib.h>
 
-char	**ft_strsplit(char const *str, char c)
+static size_t	ft_strcount(char const *s, char c)
 {
-	unsigned char **dst;
-	int		i;
-	int		j;
-	int		k;
+	size_t	i;
+	size_t	j;
 
 	i = 0;
 	j = 0;
-	k = 0;
-	while (str[i])
+	while (s[i] != '\0')
 	{
-		if (str[i] != c)
+		if (s[i] != c)
+		{
+			i = i + ft_strlenc(&s[i], c) - 1;
 			j++;
+		}
 		i++;
 	}
+	if (!j)
+		j++;
+	return (j);
+}
+
+char			**ft_strsplit(char const *str, char c)
+{
+	size_t	i;
+	size_t	len;
+	size_t	k;
+	char	**arr;
+
 	i = 0;
-	*dst = ((unsigned char **)malloc(sizeof) * j);
-	j = 0;
-	while (str[i])
+	k = 0;
+	if (!str)
+		return (NULL);
+	len = ft_strcount(str, c);
+	if (!(arr = (char **)malloc(sizeof(char *) * len + 1)))
+		return (NULL);
+	while (str[i] != '\0')
 	{
-		while (*dst[j] != '\0')
+		if (str[i] != c)
 		{
-			while ()
+			arr[k++] = ft_strsub(str, i, ft_strlenc(&str[i], c));
+			i += ft_strlenc(&str[i], c) - 1;
 		}
+		i++;
 	}
+	arr[k] = NULL;
+	return (arr);
 }

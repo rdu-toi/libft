@@ -11,31 +11,22 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
-#include <string.h>
 
-// size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
-// {
-// 	size_t	len;
-// 	size_t	i;
-
-// 	i = 0;
-// 	len = ft_strlen(dest);
-// 	while (src[i])
-// 	{
-// 		dest[len + i] = src[i];
-// 		i++;
-// 	}
-// 	dest[len + i] = '\0';
-// 	return (dest);
-// }
-
-int		main(int ac, char *av[])
+size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 {
-	if (ac == 3)
+	size_t	i;
+	size_t	j;
+
+	j = 0;
+	while (dst[j] != '\0' && j < dstsize)
+		j += 1;
+	i = j;
+	while (src[j - i] != '\0' && (j + 1) < dstsize)
 	{
-		// printf("%lu\n", ft_strlcat(av[1], av[2], 1));
-		printf("%lu\n", strlcat(av[1], av[2], 6));
+		dst[j] = src[j - i];
+		j += 1;
 	}
-	return (0);
+	if (i < dstsize)
+		dst[j] = '\0';
+	return (i + ft_strlen(src));
 }

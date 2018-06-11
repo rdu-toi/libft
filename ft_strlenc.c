@@ -1,28 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
+/*   ft_strlenc.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rdu-toi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/05/28 13:22:23 by rdu-toi           #+#    #+#             */
-/*   Updated: 2018/05/28 13:22:26 by rdu-toi          ###   ########.fr       */
+/*   Created: 2018/06/10 21:52:59 by rdu-toi           #+#    #+#             */
+/*   Updated: 2018/06/10 21:53:03 by rdu-toi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putendl_fd(char const *s, int fd)
+size_t	ft_strlenc(const char *s, char c)
 {
-	int		i;
+	size_t	i;
 
 	i = 0;
-	if (s)
-	{
-		while (s[i] != '\0')
-		{
-			ft_putchar_fd(s[i++], fd);
-		}
-		write(fd, "\n", 1);
-	}
+	while (s[i] != c)
+		i++;
+	return (i);
 }

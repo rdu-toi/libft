@@ -29,21 +29,26 @@ ft_strjoin.c ft_strsub.c ft_strnequ.c ft_strequ.c ft_strclr.c ft_strdel.c \
 ft_strnew.c ft_memdel.c ft_striter.c ft_striteri.c ft_strmap.c ft_strmapi.c \
 ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c ft_memccpy.c ft_memmove.c \
 ft_memchr.c ft_strndup.c ft_isspace.c ft_isupper.c ft_iswspace.c \
-ft_strtrim.c ft_strrev.c ft_nbrlen.c ft_itoa.c ft_memcmp.c
+ft_strtrim.c ft_strrev.c ft_nbrlen.c ft_itoa.c ft_memcmp.c ft_putnbr_fd.c \
+ft_strlenc.c ft_strsplit.c ft_strlcat.c ft_islower.c
 
 OBJS = $(SRCS:.c=.o)
 
 $(NAME):
-		$(CC) $(CFLAGS) -c $(SRCS)
-		$(AC) $(NAME) $(OBJS)
-		$(RLIB) $(NAME)
+		@$(CC) $(CFLAGS) -c $(SRCS)
+		@$(AC) $(NAME) $(OBJS)
+		@$(RLIB) $(NAME)
+		@echo "[INFO] Library [$(NAME)] successfully created"
 
 all: $(NAME)
 
 clean:
-		rm -rf $(OBJS)
+		@rm -rf $(OBJS)
+		@echo "[INFO] Object files successfully removed"
 
 fclean:	clean
-		rm -rf $(NAME)
+		@rm -rf $(NAME)
+		@echo "[INFO] Library [$(NAME)] successfully removed"
 
 re:		fclean all
+		@echo "[INFO] Library [$(NAME)] successfully recreated"

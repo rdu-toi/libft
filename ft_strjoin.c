@@ -17,15 +17,13 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	int		i;
 	char	*str;
 
-	str = NULL;
+	if (!(s1 && s2))
+		return (NULL);
 	i = ft_strlen(s1);
 	i += ft_strlen(s2);
-	if (s1 && s2)
-	{
-		if(!(str = (char *)malloc(sizeof(char) * i + 1)))
+	if (!(str = (char *)malloc(sizeof(char) * i + 1)))
 		return (NULL);
-		ft_strcpy(str, s1);
-		ft_strcat(str, s2);
-	}
+	ft_strcpy(str, s1);
+	ft_strcat(str, s2);
 	return (str);
 }

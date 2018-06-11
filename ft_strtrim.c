@@ -24,8 +24,8 @@ char	*ft_strtrim(char const *s)
 		return (NULL);
 	while (s[i] && ft_iswspace(s[i]))
 		i++;
-	if(s[i] == '\0')
-		return(ft_strdup(""));
+	if (s[i] == '\0')
+		return (ft_strdup(""));
 	j = ft_strlen(s) - 1;
 	while (ft_iswspace(s[j]) && j >= 1)
 		j--;

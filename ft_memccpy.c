@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
 void	*ft_memccpy(void *dst, const void *src, int c, size_t n)
 {
@@ -26,9 +25,4 @@ void	*ft_memccpy(void *dst, const void *src, int c, size_t n)
 		i++;
 	}
 	return (NULL);
-}
-
-int		main(void)
-{
-	printf("%s\n", ft_memccpy("hello", "world", 'l', 0));
 }

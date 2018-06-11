@@ -14,10 +14,7 @@
 
 int		ft_isupper(int c)
 {
-	unsigned char uc;
-
-	uc = (unsigned char)c;
-	if (uc >= 'A' && uc <= 'Z')
+	if (c >= 'A' && c <= 'Z')
 		return (1);
 	else
 		return (0);

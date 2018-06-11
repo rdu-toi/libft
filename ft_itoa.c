@@ -22,14 +22,9 @@ char	*ft_itoa(int n)
 	nbr = n;
 	flag = 0;
 	len = ft_nbrlen((int)nbr);
-	if (nbr < 0)
-		len++;
-	if (!(str = (char*)malloc(sizeof(char) * len + 1)))
+	if (!(str = ft_strnew(len)))
 		return (NULL);
-	str[len] = '\0';
 	len--;
-	if (n == 0)
-		return ("0");
 	if (nbr < 0)
 	{
 		nbr = -nbr;
