@@ -28,12 +28,10 @@ static size_t	ft_strcount(char const *s, char c)
 		}
 		i++;
 	}
-	if (!j)
-		j++;
 	return (j);
 }
 
-char			**ft_strsplit(char const *str, char c)
+char			**ft_strsplit(char const *s, char c)
 {
 	size_t	i;
 	size_t	len;
@@ -42,17 +40,17 @@ char			**ft_strsplit(char const *str, char c)
 
 	i = 0;
 	k = 0;
-	if (!str)
+	if (!s)
 		return (NULL);
-	len = ft_strcount(str, c);
+	len = ft_strcount(s, c);
 	if (!(arr = (char **)malloc(sizeof(char *) * len + 1)))
 		return (NULL);
-	while (str[i] != '\0')
+	while (s[i] != '\0')
 	{
-		if (str[i] != c)
+		if (s[i] != c)
 		{
-			arr[k++] = ft_strsub(str, i, ft_strlenc(&str[i], c));
-			i += ft_strlenc(&str[i], c) - 1;
+			arr[k++] = ft_strsub(s, i, ft_strlenc(&s[i], c));
+			i += ft_strlenc(&s[i], c) - 1;
 		}
 		i++;
 	}
