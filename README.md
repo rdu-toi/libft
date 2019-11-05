@@ -1,2 +1,3 @@
 # libft
-My very own library!
+Recreation of the C standard library. Used for all
+future WTC projects in C.
